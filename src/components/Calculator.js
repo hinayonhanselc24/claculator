@@ -36,15 +36,15 @@ const Calculator = () => {
   return (
     <div className="calculator-container">
       <h1>Calculator using React </h1>
-      <button onClick={addRow} className="add-row-button">Add Row</button>
       {rows.map(row => (
         <Row
-          key={row.id}
-          id={row.id}
-          onValueChange={handleValueChange}
-          onRemove={removeRow}
+        key={row.id}
+        id={row.id}
+        onValueChange={handleValueChange}
+        onRemove={removeRow}
         />
       ))}
+      <button onClick={addRow} className="add-row-button">Add Row</button>
       <h2 className="total">Total: {total}</h2>
     </div>
   );

@@ -38,7 +38,7 @@ const Row = ({ id, onValueChange, onRemove }) => {
       <button onClick={toggleEnabled} className="row-button">
         {enabled ? 'Disable' : 'Enable'}
       </button>
-      <button onClick={() => onRemove(id)} className="row-button">Remove</button>
+      <button onClick={() => onRemove(id)} className="row-button">Delete</button>
     </div>
   );
 };
