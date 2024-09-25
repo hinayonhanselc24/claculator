@@ -34,18 +34,22 @@ const Calculator = () => {
   };
 
   return (
-    <div className="calculator-container">
-      <h1>Calculator using React </h1>
-      {rows.map(row => (
-        <Row
-        key={row.id}
-        id={row.id}
-        onValueChange={handleValueChange}
-        onRemove={removeRow}
-        />
-      ))}
-      <button onClick={addRow} className="add-row-button">Add Row</button>
-      <h2 className="total">Total: {total}</h2>
+    <div className='calculator-container'>
+      <div className="calculator-containers">
+        {/* <h1>Calculator using React</h1> */}
+        <div className="total-container">
+          {total !== 0 && <h2 className="total"> {total}</h2>}
+        </div>
+        {rows.map(row => (
+          <Row
+            key={row.id}
+            id={row.id}
+            onValueChange={handleValueChange}
+            onRemove={removeRow}
+          />
+        ))}
+        <button onClick={addRow} className="row-color">Add Row</button>
+      </div>
     </div>
   );
 };

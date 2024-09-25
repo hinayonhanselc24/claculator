@@ -2,25 +2,25 @@ import React, { useState } from 'react';
 import './Calculator.css';
 
 const Row = ({ id, onValueChange, onRemove }) => {
-  const [value, setValue] = useState(''); // Start with an empty string
+  const [value, setValue] = useState(''); 
   const [enabled, setEnabled] = useState(true);
   const [sign, setSign] = useState('+');
 
   const handleValueChange = (e) => {
     const inputValue = e.target.value;
-    setValue(inputValue); // Set the input value directly as a string
-    onValueChange(id, enabled && inputValue !== '' ? Number(inputValue) : 0, sign); // Pass 0 if input is empty
+    setValue(inputValue); 
+    onValueChange(id, enabled && inputValue !== '' ? Number(inputValue) : 0, sign);
   };
 
   const handleSignChange = () => {
     const newSign = sign === '+' ? '-' : '+';
     setSign(newSign);
-    onValueChange(id, enabled && value !== '' ? Number(value) : 0, newSign); // Pass 0 if value is empty
+    onValueChange(id, enabled && value !== '' ? Number(value) : 0, newSign); 
   };
 
   const toggleEnabled = () => {
     setEnabled(!enabled);
-    onValueChange(id, !enabled ? (value !== '' ? Number(value) : 0) : 0, sign); // Pass 0 if value is empty
+    onValueChange(id, !enabled ? (value !== '' ? Number(value) : 0) : 0, sign);
   };
 
   return (
@@ -30,15 +30,15 @@ const Row = ({ id, onValueChange, onRemove }) => {
       </button>
       <input
         type="number"
-        value={value} // Controlled input
+        value={value}
         onChange={handleValueChange}
         disabled={!enabled}
-        placeholder="" // No placeholder
+        placeholder=""
       />
-      <button onClick={toggleEnabled} className="row-button">
+      <button onClick={toggleEnabled} className="enabling-button">
         {enabled ? 'Disable' : 'Enable'}
       </button>
-      <button onClick={() => onRemove(id)} className="row-button">Delete</button>
+      <button onClick={() => onRemove(id)} className="delete-button">Delete</button>
     </div>
   );
 };
